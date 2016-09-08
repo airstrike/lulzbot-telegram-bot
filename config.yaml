@@ -1,0 +1,28 @@
+telegram:
+    token:
+
+twitter:
+    client_key:
+    client_secret:
+    access_token:
+    access_secret:
+
+youtube:
+    API_SERVER_KEY:
+
+thecatapi:
+    API_KEY:
+
+imgur:
+    client_id:
+    client_secret:
+
+microsoft:
+    CLIENT_ID:
+    CLIENT_SECRET:
+
+bingsearch:
+    API_KEY:
+
+yahoo:
+    CONSUMER_KEY:

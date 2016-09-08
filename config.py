@@ -1,6 +1,5 @@
 import os
-import configparser
+import yaml
 
-confile = os.path.join(os.path.dirname(__file__),'data','config.ini')
-config = configparser.ConfigParser()
-config.read(confile,encoding='utf-8')
+with open("config.yaml", 'r') as ymlfile:
+    config = yaml.load(ymlfile)
