@@ -50,6 +50,6 @@ def error():
 if __name__ == "__main__":
 	try:
 		youtube(search_term)
-	except HttpError, e:
-		print "An HTTP error %d occurred:\n%s" % (e.resp.status, e.content)
+	except HttpError as e:
+		print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
 		error()

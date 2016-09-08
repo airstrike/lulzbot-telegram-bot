@@ -74,7 +74,7 @@ def getWoeid(placename):
 	location = placename
 
 	if not location:
-	    print 'no location provided'
+	    print('no location provided')
 
 	url = 'http://where.yahooapis.com/v1/places.q(\'%s\')?appid=%s&format=json' % (
 	    location, CONSUMER_KEY
@@ -84,7 +84,7 @@ def getWoeid(placename):
 	places = json['places']
 	#print places
 	if not places['count']:
-	    print 'found nothing'
+	    print('found nothing')
 	place = places['place'][0]
 
 	return place['woeid']

@@ -22,9 +22,9 @@ import random
 import telegram
 import emoji
 from BeautifulSoup import BeautifulSoup
-import urllib2
-from urllib2 import Request
-import urllib
+import urllib.request, urllib.error, urllib.parse
+from urllib.request import Request
+import urllib.request, urllib.parse, urllib.error
 import xmltodict
 import traceback
 import configparser
@@ -173,7 +173,7 @@ def echo():
                                 lang_from = message_broken[0]
                                 lang_to = message_broken[1]
                                 lang_text = message_broken[2]
-                                print lang_from+lang_to+lang_text
+                                print(lang_from+lang_to+lang_text)
                                 bot.sendMessage(chat_id=chat_id,text=btranslate(lang_text,lang_from,lang_to))
                     else:
                         bot.sendMessage(chat_id=chat_id,text=error)
@@ -182,7 +182,7 @@ def echo():
                 if '/cats' in message:
                     bot.sendMessage(chat_id=chat_id,text='Hold on, digging out a random cat pic!')
                     url = "http://thecatapi.com/api/images/get?api_key="+cat_API_key+"&format=xml"
-                    xml_src = urllib2.urlopen(url)
+                    xml_src = urllib.request.urlopen(url)
                     data = xml_src.read()
                     xml_src.close()
                     data = xmltodict.parse(data)
@@ -240,7 +240,7 @@ def echo():
                         bot.sendMessage(chat_id=chat_id,text='Use it like: /giphy keyword ; Ex, /giphy cats or /gif cats')
                     else:
                         img = translate(search_term)
-                        print img.fixed_height.downsampled.url
+                        print(img.fixed_height.downsampled.url)
                         bot.sendMessage(chat_id=chat_id,text='Hang in there. Fetching gif..-Powered by GIPHY!')
                         bot.sendChatAction(chat_id=chat_id, action=telegram.ChatAction.UPLOAD_PHOTO)
                         threadobjgiphy = UploadThread(bot,chat_id,img.fixed_height.downsampled.url.encode('utf-8'))
@@ -272,7 +272,7 @@ Support Utility methods go below
 '''
 
 def replace_all(text, dic):
-    for i, j in dic.iteritems():
+    for i, j in dic.items():
         text = text.replace(i, j)
     return text
 

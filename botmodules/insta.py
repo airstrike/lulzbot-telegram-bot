@@ -49,7 +49,7 @@ def insta_hon():
 		#	search_term = search_term.replace(' ', '')
 		search_term = 'selfie'
 		if not api.tag_search(search_term, 1):
-			print "No result found. :("
+			print("No result found. :(")
 		else:
 			recent_media, next_ = api.tag_recent_media(1, 20, search_term)
 			for media in recent_media:
@@ -74,7 +74,7 @@ def insta_tag(search_tag):
 		#	search_term = search_term.replace(' ', '')
 		search_term = search_tag
 		if not api.tag_search(search_term, 1):
-			print "No result found. :("
+			print("No result found. :(")
 		else:
 			recent_media, next_ = api.tag_recent_media(1, 20, search_term)
 			for media in recent_media:

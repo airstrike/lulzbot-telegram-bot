@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from BeautifulSoup import BeautifulStoneSoup
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 def weather(components): # !weather <city> or !weather <city>, <state or country>
     '''Returns a string containing the weather conditions from a location'''
@@ -34,7 +34,7 @@ def get_weather(location):
     base_url = 'http://api.wunderground.com/auto/wui/geo/WXCurrentObXML/index.xml?query='
 
     try:
-        page = urllib.urlopen(base_url + location)
+        page = urllib.request.urlopen(base_url + location)
     except:
         return 'Could not open the page!'
     else:

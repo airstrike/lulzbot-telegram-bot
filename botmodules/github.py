@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import feedparser 
-import urllib2
-from urllib2 import Request
+import urllib.request, urllib.error, urllib.parse
+from urllib.request import Request
 
 def gitfeed(username):
 	returnval = ''
@@ -13,14 +13,14 @@ def gitfeed(username):
 
 	try:
 		#check if url returns 404
-		a=urllib2.urlopen(url)
+		a=urllib.request.urlopen(url)
 		feed = feedparser.parse(url)["entries"]
-		for i in xrange(1,5):
+		for i in range(1,5):
 			returnval +='['+str(i)+' '+feed[i].title+' - '+feed[i].link+' ]\n'
 
 		return returnval
 
-	except urllib2.HTTPError as e:
+	except urllib.error.HTTPError as e:
 		if e.code == 404:
 			error = 'Either user does not exist or you gave invalid username'
 			return error

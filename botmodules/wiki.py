@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from BeautifulSoup import BeautifulSoup
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 def wiki(term): # /wiki <search term>
@@ -37,9 +37,9 @@ def get_para(wlink):
 
     msg = ''
     try:
-        page_request = urllib2.Request(wlink)
+        page_request = urllib.request.Request(wlink)
         page_request.add_header('User-agent', 'Mozilla/5.0')
-        page = urllib2.urlopen(page_request)
+        page = urllib.request.urlopen(page_request)
     except IOError:
         msg = 'Cannot acces link!'
     else:
